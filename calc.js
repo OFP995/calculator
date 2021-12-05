@@ -4,7 +4,7 @@ let sign = '';
 let finish = false;
 
 const digit = ['0','1','2','3','4','5','6','7','8','9','.'];
-const action = ['+','-','*','/'];
+const action = ['+','-','*','/','%','+/-'];
 
 // display
 const out = document.querySelector ('.calc-screen p');
@@ -17,7 +17,7 @@ function clearAll () {
     out.textContent = 0;
     } 
 
-     document.querySelector('.ac').onclick = clearAll;
+    document.querySelector('.ac').onclick = clearAll;
     
     document.querySelector('.buttons').onclick = (event) => {
         // нажата не кнопка
@@ -77,6 +77,12 @@ function clearAll () {
                      }
                     a= a / b;
                     break;
+                case '%':
+                        a= a* 0.01;
+                        break;
+                case '+/-':
+                        a= a* (-1);
+                        break;        
                                 }
             finish= true;
             out.textContent = a;
